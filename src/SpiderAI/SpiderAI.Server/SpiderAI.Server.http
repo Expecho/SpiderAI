@@ -1,0 +1,6 @@
+@SpiderAI.Server_HostAddress = http://localhost:5280
+
+GET {{SpiderAI.Server_HostAddress}}/chat?messafe=hi
+Accept: application/json
+
+###
