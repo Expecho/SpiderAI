@@ -1,6 +1,8 @@
 using SpiderAI.Core;
-using SpiderAI.Core.Chat;
+using SpiderAI.Core.Services;
 using SpiderAI.ServiceDefaults;
+
+AppContext.SetSwitch("Microsoft.SemanticKernel.Experimental.GenAI.EnableOTelDiagnostics", true);
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,10 +40,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/api/chat", (ISimpleChat chat, string message) =>
+app.MapGet("/api/chat", (ChatCompletionService chat, string message, Guid conversationId) =>
 {
-    return chat.Respond("Write an essay about nuclear energy");
-})
-.WithName("chat");
+    return chat.Respond(message, "azgpt4o", conversationId);
+});
+
+app.MapGet("/api/image", (TextToImageService chat, string message, Guid conversationId) =>
+{
+    return chat.Respond(message, "azdalle3", conversationId);
+});
 
 app.Run();

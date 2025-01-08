@@ -11,9 +11,9 @@ public static class KernelBuilderExtensions
         {
             _ = model.Capability switch
             {
-                "Chat" => kernelBuilder.AddAzureOpenAIChatCompletion(model.ModelId, azureOpenAI.Endpoint, azureOpenAI.ApiKey),
-                "ImageGeneration" => kernelBuilder.AddAzureOpenAITextToImage(model.ModelId, azureOpenAI.Endpoint, azureOpenAI.ApiKey),
-                "TextEmbedding" => kernelBuilder.AddAzureOpenAITextEmbeddingGeneration(model.ModelId, azureOpenAI.Endpoint, azureOpenAI.ApiKey),
+                "ChatCompletion" => kernelBuilder.AddAzureOpenAIChatCompletion(model.ModelId, azureOpenAI.Endpoint, azureOpenAI.ApiKey, serviceId: model.Name),
+                "ImageGeneration" => kernelBuilder.AddAzureOpenAITextToImage(model.ModelId, azureOpenAI.Endpoint, azureOpenAI.ApiKey, serviceId: model.Name),
+                "TextEmbedding" => kernelBuilder.AddAzureOpenAITextEmbeddingGeneration(model.ModelId, azureOpenAI.Endpoint, azureOpenAI.ApiKey, serviceId: model.Name),
                 _ => throw new NotSupportedException($"Model capability '{model.Capability}' is not supported.")
             };
         }

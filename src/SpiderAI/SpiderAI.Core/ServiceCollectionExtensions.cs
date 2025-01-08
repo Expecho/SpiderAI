@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SpiderAI.Core.Chat;
 using SpiderAI.Core.Configuration;
 using SpiderAI.Core.SemanticKernel;
+using SpiderAI.Core.Services;
 
 namespace SpiderAI.Core;
 
@@ -14,7 +14,9 @@ public static class ServiceCollectionExtensions
         configuration.GetSection(nameof(AzureOpenAI)).Bind(azureOpenAi);
 
         services.AddKernel().AddAzureOpenAI(azureOpenAi);
-        services.AddTransient<ISimpleChat, SimpleChat>();
+        services.AddSingleton<ChatCompletionService>();
+        services.AddSingleton<TextToImageService>();
+        services.AddSingleton<IHistoryService, InMemoryHistoryService>();
 
         return services;
     }

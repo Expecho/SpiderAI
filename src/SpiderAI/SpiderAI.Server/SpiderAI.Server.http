@@ -1,6 +1,20 @@
-@SpiderAI.Server_HostAddress = http://localhost:5280
+@HostAddress = http://localhost:5280
 
-GET {{SpiderAI.Server_HostAddress}}/chat?messafe=hi
-Accept: application/json
+### OpenAPI
 
-###
+GET {{HostAddress}}/openapi/v1.json
+
+### Chat conversation, #1
+@ConversationId = 94ab15aa-946b-402c-9183-5794c99c0bc5
+
+GET {{HostAddress}}/api/chat?message="I am John"&conversationId={{ConversationId}}
+
+### Chat conversation, #1
+
+GET {{HostAddress}}/api/chat?message="What's my name?"&conversationId={{ConversationId}}
+
+### Generate an image
+
+@ConversationId = 38e321ed-b1ff-495d-9146-e455e993f23f
+@ImagePrompt = "create an image of a christmas tree"
+GET {{HostAddress}}/api/image?message="{{{{ImagePrompt}}}}"&conversationId={{ConversationId}}
