@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ChatapiService } from './chatapi.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +7,4 @@ import { ChatapiService } from './chatapi.service';
 })
 export class AppComponent {
   title = 'SpiderAI.Client';
-  data: any;
-
-  constructor(private apiService: ChatapiService) { }
-
-  ngOnInit(): void {
-    this.apiService.getData().subscribe(response => {
-      this.data = response;
-    });
-  }
 }

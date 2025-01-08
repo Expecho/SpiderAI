@@ -11,7 +11,7 @@ export class ChatapiService {
 
   constructor(private http: HttpClient) { }
 
-  getData(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/chat?message=Hello`);
+  getData(prompt: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/chat?message=${prompt}&conversationId=94ab15aa-946b-402c-9183-5794c99c0bc5`);
   }
 }

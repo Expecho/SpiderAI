@@ -1,0 +1,25 @@
+<div class="textarea-container">
+  <textarea
+    [formControl]="textInput"
+    rows="4"
+    placeholder="Enter your prompt here..."
+  ></textarea>
+  <div *ngIf="textInput.invalid && textInput.touched" class="error-message">
+    Prompt is required
+  </div>
+  <button
+    (click)="onSubmit()"
+    [disabled]="textInput.invalid">
+    Submit
+  </button>
+</div>
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Response</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+    </mat-card-content>
+  </mat-card>
+</div>
