@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Radzen.Blazor
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,12 +10,14 @@
     <link rel="stylesheet" href="_content/SpiderAI.Client.Shared/app.css" />
     <link rel="stylesheet" href="SpiderAI.Client.Web.styles.css" />
     <link rel="icon" type="image/png" href="_content/SpiderAI.Client.Shared/favicon.png" />
+    <RadzenTheme Theme="material" @rendermode="InteractiveWebAssembly" />
     <HeadOutlet @rendermode="InteractiveWebAssembly" />
 </head>
 
 <body>
     <Routes @rendermode="InteractiveWebAssembly" />
     <script src="_framework/blazor.web.js"></script>
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js?v=@(typeof(Radzen.Colors).Assembly.GetName().Version)"></script>
 </body>
 
 </html>

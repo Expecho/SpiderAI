@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Radzen;
 using SpiderAI.Client.Services;
 using SpiderAI.Client.Shared.Services;
 
@@ -17,8 +18,8 @@ public static class MauiProgram
 
         // Add device-specific services used by the SpiderAI.Client.Shared project
         builder.Services.AddSingleton<IFormFactor, FormFactor>();
-
         builder.Services.AddMauiBlazorWebView();
+        builder.Services.AddRadzenComponents();
 
 #if DEBUG
         builder.Services.AddBlazorWebViewDeveloperTools();

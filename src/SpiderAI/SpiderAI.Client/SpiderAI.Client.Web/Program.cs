@@ -1,3 +1,4 @@
+using Radzen;
 using SpiderAI.Client.Shared.Services;
 using SpiderAI.Client.Web.Components;
 using SpiderAI.Client.Web.Services;
@@ -10,6 +11,7 @@ builder.Services.AddRazorComponents()
 
 // Add device-specific services used by the SpiderAI.Client.Shared project
 builder.Services.AddSingleton<IFormFactor, FormFactor>();
+builder.Services.AddRadzenComponents();
 
 var app = builder.Build();
 
