@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SpiderAI.Client\SpiderAI.Client.Web\SpiderAI.Client.Web.csproj" />
     <ProjectReference Include="..\SpiderAI.Server\SpiderAI.Server.csproj" />
   </ItemGroup>
 
